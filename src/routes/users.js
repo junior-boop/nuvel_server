@@ -16,6 +16,8 @@ Users.post('/signin', async({ req, res, json, env}) => {
     const prisma = Prisma(env)
     const formData = await req.parseBody()
 
+    console.log(formData)
+
     try {
         const data = await prisma.users.create({
             data : formData

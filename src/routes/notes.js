@@ -59,9 +59,11 @@ Notes.get('/:noteId', async ({env, req, res, json}) => {
 Notes.post('/user-notes/:userId', async ({env, req, res, json}) => {
     const userId = req.param('userId')
     const prisma = Prisma(env)
+
     const noteInit = {
         note_content : '', 
-        userId : userId
+        userId : userId, 
+        createdBy : userId
     }
 
     console.log('je suis touche')
