@@ -5,9 +5,21 @@
   "scripts": {
     "deploy": "wrangler deploy",
     "dev": "wrangler dev",
-    "start": "wrangler dev"
+    "start": "wrangler dev",
+    "prisma:d1": "npx wrangler d1 migrations create note_database create_note_table",
+    "prisma:migration": "npx prisma migrate diff --from-empty --to-schema-datamodel ./prisma/schema.prisma --script --output migrations/0001_create_note_table.sql",
+    "prisma:generate": "npx prisma generate",
+    "prisma:migrate": "yarn prisma:d1 && yarn prisma:migration && yarn prisma:generate",
+    "migration:local": "npx wrangler d1 execute note_database --local --file=./migrations/0001_create_note_table.sql",
+    "migration:remote": "npx wrangler d1 execute note_database --remote --file=./migrations/0001_create_note_table.sql"
   },
   "devDependencies": {
-    "wrangler": "^3.0.0"
+    "prisma": "^5.19.1"
+  },
+  "dependencies": {
+    "@prisma/adapter-d1": "^5.19.1",
+    "@prisma/client": "5.19.1",
+    "hono": "^4.0.5",
+    "wrangler": "^3.112.0"
   }
 }

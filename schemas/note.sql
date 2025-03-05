@@ -1,0 +1,11 @@
+DROP TABLE IF EXISTS Notes;
+CREATE TABLE IF NOT EXISTS Notes (
+    noteId VARCHAR(20) PRIMARY KEY NOT NULL,
+    userId VARCHAR(20) NOT NULL,
+    note_content VARCHAR(255) NOT NULL,
+    createdBy VARCHAR(255) NOT NULL,
+    createdAt INTEGER NOT NULL,
+    published VARCHAR(255) NOT NULL,
+    epingler INTEGER NOT NULL, 
+    updatedAt INTEGER NOT NULL
+)

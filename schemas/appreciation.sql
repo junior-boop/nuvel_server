@@ -1,0 +1,6 @@
+DROP TABLE IF EXISTS Appreciation;
+CREATE TABLE IF NOT EXISTS Appreciation (
+    appreciateID VARCHAR(20) PRIMARY KEY NOT NULL,
+    articleId VARCHAR(20) NOT NULL,
+    userInfo VARCHAR(255) NOT NULL
+)

@@ -1,0 +1,33 @@
+generator client {
+    provider        = "prisma-client-js"
+    previewFeatures = ["driverAdapters"]
+}
+
+datasource db {
+    provider = "sqlite"
+    url      = env("DATABASE_URL")
+}
+
+model Notes {
+    Id           String   @id @default(uuid())
+    note_content String
+    createdBy    String
+    epingler     Boolean  @default(false)
+    createdAt    DateTime @default(now())
+    updatedAt    DateTime @updatedAt
+    user         Users    @relation(fields: [userId], references: [Id])
+    userId       String
+}
+
+model Users {
+    Id                 String   @id @unique @default(uuid())
+    name               String
+    surname            String
+    email              String   @unique
+    googleProvider     String
+    createdAt          DateTime @default(now())
+    uptdatedAt         DateTime @updatedAt
+    telephone          String
+    countryCalledIndex String
+    Notes              Notes[]
+}
