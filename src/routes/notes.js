@@ -1,4 +1,4 @@
-import { Hono } from 'hono'
+import { Hono } from 'hono';
 import { Prisma } from "../utils/functions";
 
 const Notes = new Hono()
@@ -92,6 +92,11 @@ Notes.put('/:noteId', async ({ env, req, res, json}) => {
         data : {
             note_content : content
         }
+    })
+
+    return json({
+        message : 'note modifié avec succes',
+        data : data
     })
 })
 
