@@ -78,12 +78,13 @@ Notes.post('/user-notes/:userId', async ({env, req, res, json}) => {
     })
 })
 
-Notes.put('/:noteId', async ({ env, req, res, json}) => {
+Notes.put('/:noteId', async ({ env, req, res, json, text}) => {
     const noteId = req.param("noteId")
     const formData = await req.formData()
     const prisma = Prisma(env)
 
-    const content = formData.get('content')
+    try {
+        const content = formData.get('content')
 
     const data = await prisma.notes.update({
         where : {
@@ -98,6 +99,9 @@ Notes.put('/:noteId', async ({ env, req, res, json}) => {
         message : 'note modifié avec succes',
         data : data
     })
+    } catch (error) {
+        return text(error)
+    }
 })
 
 Notes.delete('/:noteId', async ({env, req, res, json}) => {
