@@ -88,7 +88,7 @@ Notes.put('/:noteId', async ({ env, req, res, json, text}) => {
 
     const data = await prisma.notes.update({
         where : {
-            id : noteId
+            Id : noteId
         }, 
         data : {
             note_content : content
