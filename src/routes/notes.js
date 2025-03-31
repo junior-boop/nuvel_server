@@ -86,18 +86,20 @@ Notes.put('/:noteId', async ({ env, req, res, json, text}) => {
     try {
         const content = formData.get('content')
 
-    const data = await prisma.notes.update({
-        where : {
-            Id : noteId
-        }, 
-        data : {
-            note_content : content
-        }
-    })
+    // const data = await prisma.notes.update({
+    //     where : {
+    //         Id : noteId
+    //     }, 
+    //     data : {
+    //         note_content : content
+    //     }
+    // })
+
+    const test = {"Id":"f5521d50-79a0-4d23-8448-621242a3ec15","note_content":"","createdBy":"c52c77f6-a925-44a4-9738-873c030b152f","epingler":false,"createdAt":"2025-03-31T08:38:17.027Z","updatedAt":"2025-03-31T09:26:12.563Z","userId":"c52c77f6-a925-44a4-9738-873c030b152f"}
 
     return json({
         message : 'note modifié avec succes',
-        data : data
+        data : content
     })
     } catch (error) {
         return text(error)
