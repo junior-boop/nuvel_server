@@ -1,0 +1,12 @@
+POST http://localhost:8787/users/signin HTTP/1.1
+content-type: application/json
+
+{
+    "name": "sample",
+    "surname": "Daniel",
+    "email":"danielseppo3@gmail.com",
+    "googleProvider":"vide",
+    "telephone":655733765,
+    "countryCalledIndex":237,
+    "time": "Wed, 21 Oct 2015 18:27:50 GMT"
+}
