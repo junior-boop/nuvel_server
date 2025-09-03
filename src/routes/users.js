@@ -26,14 +26,13 @@ Users.post('/signin', async({ req, res, json, env}) => {
         })
 
         if(check_user_exist){
-            const lastlogin = JSON.parse(check_user_exist.lastlogin) || []
             const modifiedUser = await prisma.users.update({
                 where: {
                     email: user.email
                 },
                 data: {
                     ...user,
-                    lastlogin :JSON.stringify([...lastlogin, new Date().toISOString()]),
+                    lastlogin : "",
                 }
             })
             return json({
