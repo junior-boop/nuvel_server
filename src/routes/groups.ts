@@ -81,7 +81,7 @@ groups.post("/:id", async ({ json, req, env }) => {
   const result = await Groups.create(object);
   Synced.create({
     id: uuidv4(),
-    userid: id,
+    userid: data.userid,
     noteid: result.id,
     action: "CREATE",
     timestamp: new Date().toISOString(),

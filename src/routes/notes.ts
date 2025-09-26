@@ -60,7 +60,7 @@ notes.post("/:id", async ({ json, req, env }) => {
     );
     Synced.create({
       id: uuidv4(),
-      userid: id,
+      userid: data.creator,
       noteid: data.id,
       action: "UPDATE",
       timestamp: new Date().toISOString(),
@@ -81,7 +81,7 @@ notes.post("/:id", async ({ json, req, env }) => {
   const result = await Notes.create(object);
   Synced.create({
     id: uuidv4(),
-    userid: id,
+    userid: data.creator,
     noteid: result.id,
     action: "CREATE",
     timestamp: new Date().toISOString(),
