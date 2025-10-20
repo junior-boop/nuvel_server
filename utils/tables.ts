@@ -17,6 +17,10 @@ export const UsersAccount = (env: ENV) => {
     id: "TEXT PRIMARY KEY NOT NULL",
     name: "TEXT NOT NULL",
     email: "TEXT NOT NULL UNIQUE",
+    first_name: "TEXT NOT NULL",
+    church_status: "TEXT NOT NULL DEFAULT Member",
+    domination: "TEXT NOT NULL",
+    biography: "TEXT NOT NULL",
     lastlogin: "TEXT",
     lastlogout: "TEXT",
     created: "DATETIME DEFAULT CURRENT_TIMESTAMP",
@@ -38,6 +42,7 @@ export const Notes = (env: ENV) => {
     created: "DATETIME DEFAULT CURRENT_TIMESTAMP",
     modified: "TIMESTAMP DEFAULT CURRENT_TIMESTAMP",
     lastSyncUpdate: "TIMESTAMP DEFAULT CURRENT_TIMESTAMP",
+    html: "TEXT NULL",
     clientversion: "INTEGER NOT NULL DEFAULT 0",
     version: "INT NOT NULL DEFAULT 1",
   });

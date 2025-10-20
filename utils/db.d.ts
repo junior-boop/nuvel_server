@@ -11,6 +11,7 @@ export type Notes = {
   pinned: 0 | 1;
   archived: 0 | 1;
   grouped: string | null;
+  html: string;
   created: Date;
   modified: Date;
   clientversion: number;
@@ -21,7 +22,11 @@ export type Notes = {
 export type User = {
   id: string;
   name: string;
+  first_name: string;
   email: string;
+  church_status: "Pastor" | "Elder" | "Deacon" | "Leader" | "Member";
+  domination: string;
+  biography: string;
   created: string;
   modified: string;
   lastlogin: string;
