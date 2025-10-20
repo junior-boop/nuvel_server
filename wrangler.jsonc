@@ -4,7 +4,7 @@
  */
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "xnuvelserver",
+	"name": "nuvelserver",
 	"main": "src/index.ts",
 	"compatibility_date": "2025-09-19",
 	"assets": {
