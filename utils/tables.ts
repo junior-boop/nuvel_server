@@ -18,6 +18,7 @@ export const UsersAccount = (env: ENV) => {
     name: "TEXT NOT NULL",
     email: "TEXT NOT NULL UNIQUE",
     first_name: "TEXT NOT NULL",
+    // @ts-ignore
     church_status: "TEXT NOT NULL DEFAULT Member",
     domination: "TEXT NOT NULL",
     biography: "TEXT NOT NULL",
@@ -43,7 +44,9 @@ export const Notes = (env: ENV) => {
     modified: "TIMESTAMP DEFAULT CURRENT_TIMESTAMP",
     lastSyncUpdate: "TIMESTAMP DEFAULT CURRENT_TIMESTAMP",
     html: "TEXT NULL",
+    // @ts-ignore
     clientversion: "INTEGER NOT NULL DEFAULT 0",
+    // @ts-ignore
     version: "INT NOT NULL DEFAULT 1",
   });
 
